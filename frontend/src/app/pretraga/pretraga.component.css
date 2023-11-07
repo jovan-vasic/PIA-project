@@ -1,0 +1,13 @@
+.img {
+    max-height: 100px;
+}
+
+.th, .td {
+    border: 3px solid #ddd;
+    text-align: center;
+}
+
+.th {
+    background-color: navy;
+    color: white;
+}

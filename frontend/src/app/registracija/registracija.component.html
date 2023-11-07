@@ -1,0 +1,66 @@
+<h2>Registracija</h2>
+<table>
+    <tr>
+        <td>Korisničko ime:</td>
+        <td>
+            <input type="text" name="kor_ime" [(ngModel)]="kor_ime" required>
+        </td>      
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td>
+            <input type="password" name="lozinka" [(ngModel)]="lozinka" required
+            title="Minimalno 8 karaktera, maksimalno 12 karaktera, od toga bar jedno veliko slovo, jedan broj i jedan specijalni karakter, i mora počinjati slovom.">
+        </td>        
+    </tr>
+    <tr>
+        <td>Potvrda lozinke:</td>
+        <td>
+            <input type="password" name="lozinka2" [(ngModel)]="lozinka2" title="Ponovite lozinku" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Ime:</td>
+        <td>
+            <input type="text" name="ime" [(ngModel)]="ime" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Prezime:</td>
+        <td>
+            <input type="text" name="prezime" [(ngModel)]="prezime" required> 
+        </td>        
+    </tr>
+    <tr>
+        <td>Adresa:</td>
+        <td>
+            <input type="text" name="adresa" [(ngModel)]="adresa" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Telefon:</td>
+        <td>
+            <input type="text" name="telefon" [(ngModel)]="telefon" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Mejl:</td>
+        <td>
+            <input type="text" name="mejl" [(ngModel)]="mejl" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Slika:</td>
+        <td>
+            <input type="file" (change)="selectFile($event)">
+        </td>        
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="registracija()">Registruj se</button>
+        </td>        
+    </tr>
+</table>
+<span style="color: green">{{poruka}}</span>
+<br/>
+<!-- <div><img [src]="url" *ngIf="url" width="200" height="200"></div> -->

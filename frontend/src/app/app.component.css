@@ -1,0 +1,23 @@
+.header {
+    position: relative;
+    background-color: #607D8B;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer {
+    background-color: #455A64;
+    padding: 10px;
+    text-align: center;
+}
+
+.card {
+    background-color: #B0BEC5;
+    padding: 20px;
+    min-height: 100%;
+}
+
+.img {
+    height: 50px;
+    width: 50px;
+}

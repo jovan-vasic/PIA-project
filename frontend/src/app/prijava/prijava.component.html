@@ -1,0 +1,23 @@
+<h2>Prijava korisnika na sistem</h2>
+<table>
+    <tr>
+        <td>Korisničko ime:</td>
+        <td>
+            <input type='text' name='kor_ime' [(ngModel)]='kor_ime'>
+        </td>
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td>
+            <input type='password' name='lozinka' [(ngModel)]='lozinka'>
+        </td>
+    </tr>
+    <tr>
+        <td colspan='2'>
+            <button (click)='prijava()'>Prijava</button>
+        </td>
+    </tr>
+</table>
+<span style='color: red'>{{greska}}</span>
+<br/><br/>
+<a routerLink="/admin-prijava">Admin</a>

@@ -1,0 +1,30 @@
+<h2>Promena lozinke</h2>
+<div *ngIf="spremno">
+
+<table>
+    <tr>
+        <td>Stara lozinka: </td>
+        <td>
+            <input type='password' name='stara' [(ngModel)]='stara' >
+        </td>
+    </tr>
+    <tr>
+        <td>Nova lozinka: </td>
+        <td>
+            <input type='password' name='lozinka1' [(ngModel)]='lozinka1' >
+        </td>
+    </tr>
+    <tr>
+        <td>Potvrda nove lozinke: </td>
+        <td>
+            <input type='password' name='lozinka2' [(ngModel)]='lozinka2' >
+        </td>
+    </tr>
+    <tr>
+        <td colspan='2'>
+            <button (click)="promena()">Promeni</button>
+        </td>
+    </tr>
+</table>
+
+</div>

@@ -1,0 +1,33 @@
+<h2>Pretraga knjiga</h2>
+<div *ngIf="spremno">
+
+Naziv/autor knjige:
+<input type="text" [(ngModel)]="kljuc">&nbsp;&nbsp;&nbsp;&nbsp;
+<button (click)="pretrazi()">Pretraži</button>
+<br/>
+<br/>
+<table *ngIf="pronasao">
+    <tr> 
+        <th class="th">Naziv</th> 
+        <th class="th">Autor</th>
+        <th class="th">Zanr</th> 
+        <th class="th">Izdavac</th>
+        <th class="th">Godina</th>
+        <th class="th">Jezik</th>
+        <th class="th">Slika</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let knjiga of nadjeneKnjige"> 
+        <td class="td">{{knjiga.naziv}}</td>
+        <td class="td">{{knjiga.autor}}</td>
+        <td class="td">{{knjiga.zanr}}</td>
+        <td class="td">{{knjiga.izdavac}}</td>
+        <td class="td">{{knjiga.godina}}</td>
+        <td class="td">{{knjiga.jezik}}</td>
+        <td class="td"><img class="img" [src]="dohvatiSliku(knjiga)"></td>
+        <td *ngIf="ulogovan()"><button (click)="detalji(knjiga)">Detalji</button></td>
+    </tr>
+</table>
+<span style='color: red'>{{greska}}</span>
+
+</div>

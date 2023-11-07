@@ -1,0 +1,26 @@
+<div class="header">
+    <h1>Biblioteka</h1>
+    <button mat-button [matMenuTriggerFor]="menu">Meni</button>
+    <mat-menu #menu="matMenu">
+      <button *ngIf="ulogovan(); else elseBlock" mat-menu-item (click)="profil()"><img class="img" [src]="dohvatiSliku()"></button>
+      <button *ngIf="!ulogovan(); else elseBlock" mat-menu-item (click)="prijava()">Prijava</button>
+      <button *ngIf="!ulogovan(); else elseBlock" mat-menu-item (click)="registracija()">Registracija</button>
+      <button *ngIf="ulogovan(); else elseBlock" mat-menu-item (click)="odjava()">Odjava</button>
+      <button mat-menu-item (click)="pretraga()">Pretraga</button>
+      <button mat-menu-item (click)="glavna()">Glavna strana</button>
+      <button *ngIf="ulogovan(); else elseBlock" mat-menu-item (click)="pocetna()">Početna strana</button>
+      <button *ngIf="ulogovan() && !isAdmin(); else elseBlock" mat-menu-item (click)="pregled()">Pregled zaduženih knjiga</button>
+      <button *ngIf="ulogovan() && !isAdmin(); else elseBlock" mat-menu-item (click)="istorija()">Istorija zaduženja</button>
+      <button *ngIf="isModAdmin(); else elseBlock" mat-menu-item (click)="mod()">Dodavanje knjige</button>
+      <button *ngIf="isAdmin(); else elseBlock" mat-menu-item (click)="admin()">Admin privilegije</button>
+      <ng-template #elseBlock></ng-template>
+    </mat-menu>
+</div>
+
+<div class="card">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="footer">
+    <p>ETF 2022</p>
+</div>

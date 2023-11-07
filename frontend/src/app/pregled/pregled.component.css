@@ -1,0 +1,19 @@
+.flex {
+    width: 100%; 
+    display: flex; 
+    flex-direction: row; 
+    overflow: auto;
+    gap: 10px;
+}
+
+.mat-card {
+    width: 210px;
+}
+
+.msg {
+    font-weight: bold;
+}
+
+.mat-img {
+    height: 250px;
+}

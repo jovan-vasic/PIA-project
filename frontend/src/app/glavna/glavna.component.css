@@ -1,0 +1,19 @@
+.picsum-img-wrapper {
+    margin: auto;
+    width: 500px;
+    height: 650px;
+}
+
+.carousel-caption {
+    background-color: grey;
+    width: 10%;
+    margin: auto;
+}
+
+.img {
+    width: 400px;
+    height: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

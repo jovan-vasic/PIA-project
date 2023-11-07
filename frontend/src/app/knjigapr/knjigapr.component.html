@@ -1,0 +1,56 @@
+<h2>Ažuriranje informacija knjige</h2>
+<div *ngIf="spremno">
+
+<table>
+    <tr>
+        <td>Naziv: {{knjiga.naziv}}</td>
+        <td><input type="text" value="{{knjiga.naziv}}" name="naziv" [(ngModel)]="naziv"></td>
+    </tr>
+    <tr>
+        <td>Autor: {{knjiga.autor}}</td>
+        <td><input type="text" value="{{knjiga.autor}}" name="autor" [(ngModel)]="autor"></td>
+    </tr>
+    <tr>
+        <td>Žanr: {{knjiga.zanr}}</td>
+        <td>
+            <select name="zanr" multiple value="{{knjiga.zanr}}" [(ngModel)]="zanr">
+                <option value="drama">Drama</option>
+                <option value="romantika">Romantika</option>
+                <option value="misterija">Misterija</option>
+                <option value="fantastika">Fantastika</option>
+                <option value="triler">Triler</option>
+                <option value="horor">Horor</option>
+                <option value="biografija">Biografija</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Izdavač: {{knjiga.izdavac}}</td>
+        <td><input type="text" value="{{knjiga.izdavac}}" name="izdavac" [(ngModel)]="izdavac"></td>
+    </tr>
+    <tr>
+        <td>Godina izdavanja: {{knjiga.godina}}</td>
+        <td><input type="text" value="{{knjiga.godina}}" name="godina" [(ngModel)]="godina"></td>
+    </tr>
+    <tr>
+        <td>Jezik: {{knjiga.jezik}}</td>
+        <td><input type="text" value="{{knjiga.jezik}}" name="jezik" [(ngModel)]="jezik"></td>
+    </tr>
+    <tr>
+        <td>Broj na stanju: {{knjiga.brojNaStanju}}</td>
+        <td><input type="text" value="{{knjiga.brojNaStanju}}" name="brojNaStanju" [(ngModel)]="brojNaStanju"></td>
+    </tr>
+    <tr>
+        <td>Slika:</td> 
+        <td><input type="file" (change)="selectFile($event)"></td>
+    </tr>
+</table>
+<div *ngIf="knjiga.slika"><img [src]="knjiga.slika" width="200" height="200"></div>
+<div *ngIf="!knjiga.slika"><img [src]="slikaPod" width="200" height="200"></div>
+<br/>
+
+<button (click)="azuriraj()">Ažuriraj</button>
+<br/>
+<span style="color: green">{{poruka}}</span>
+
+</div>

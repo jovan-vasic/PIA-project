@@ -1,0 +1,80 @@
+<h2>Detalji o knjizi</h2>
+<div *ngIf="knjigaItem && korisnikItem">
+
+<img class="img" [src]="dohvatiSliku(knjiga)">
+<table>
+    <tr>
+        <td>Naziv:</td> <td>{{knjiga.naziv}}</td>
+    </tr>
+    <tr>
+        <td>Autor:</td> <td>{{knjiga.autor}}</td>
+    </tr>
+    <tr>
+        <td>Žanr:</td> <td>{{knjiga.zanr}}</td>
+    </tr>
+    <tr>
+        <td>Izdavač:</td> <td>{{knjiga.izdavac}}</td>
+    </tr>
+    <tr>
+        <td>Godina izdavanja:</td> <td>{{knjiga.godina}}</td>
+    </tr>
+    <tr>
+        <td>Jezik:</td> <td>{{knjiga.jezik}}</td>
+    </tr>
+    <tr>
+        <td>Broj knjiga na stanju:</td> <td>{{knjiga.brojNaStanju}}</td>
+    </tr>
+</table>
+<br/>
+<button *ngIf="mozeZaduzi()" (click)="zaduzi()">Zaduži knjigu</button>
+&nbsp; &nbsp; &nbsp; 
+<button *ngIf="isModAdmin()" (click)="knjigapr()">Ažuriraj informacije</button>
+<br/>
+<div *ngIf="ne" style="color: red"><br/>Korisnik ne može zadužiti novu knjigu</div>
+<br/>
+
+<div *ngIf="knjiga.ocene.length > 0">
+    Prosečna ocena: &nbsp; {{ ocena(prosecnaOcena(knjiga)) }}
+</div>
+<br/>
+
+<div class="oc"> 
+    <table *ngIf="knjiga.ocene.length > 0">
+        <tr>
+            <th>Korisničko ime</th>
+            <th>Ocena</th>
+            <th>Komentar</th>
+            <th>Datum i vreme</th>
+        </tr>
+        <tr *ngFor="let o of sortOcene(knjiga.ocene)">
+            <td>{{o.kor_ime}}</td>
+            <td>{{ocena(o.ocena)}}</td>
+            <td>{{o.komentar}}</td>
+            <td>{{o.datum}} {{o.vreme}}</td>
+        </tr>
+    </table>
+    <div *ngIf="knjiga.ocene.length < 1">
+        Knjiga nema nijedan komentar (ocenu).
+    </div>
+    <br/>
+</div>
+
+<table *ngIf="mozeOceniti()">
+    <tr>
+        <td>Ocena:</td>
+        <td>
+            <input type="number" [(ngModel)]="oc" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Komentar:</td>
+        <td>
+            <input type="text" [(ngModel)]="kom" required>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><button (click)="oceni()">Oceni</button></td>
+    </tr>
+</table>
+
+</div>

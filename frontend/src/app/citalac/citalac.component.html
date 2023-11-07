@@ -1,0 +1,18 @@
+<h2>Početna strana - knjiga dana</h2>
+<div *ngIf="spremno">
+
+<img class="img" [src]="dohvatiSliku(knjigaDana())">
+<table>
+    <tr>
+        <td>Naziv: {{knjigaDana().naziv}}</td>
+    </tr>
+    <tr>
+        <td>Autor: {{knjigaDana().autor}}</td>
+    </tr>
+    <tr *ngIf="knjigaDana().ocene.length > 1; else elseBlock">
+        <td>Prosečna ocena: {{ prosecnaOcena(knjigaDana()) }}</td>
+    </tr>
+    <ng-template #elseBlock>Knjiga nema ocene</ng-template>
+</table>
+
+</div>

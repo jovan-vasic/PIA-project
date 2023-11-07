@@ -1,0 +1,22 @@
+<h2>Pregled zaduženih knjiga</h2>
+<div *ngIf="spremno">
+
+<div class="flex" *ngIf="ima; else elseBlock">
+    <div *ngFor="let k of zaduzeneKnjige">
+        <mat-card class="mat-card" *ngIf="k">
+            <mat-card-title>{{k.naziv}}</mat-card-title>
+            <mat-card-subtitle>{{k.autor}}</mat-card-subtitle>
+            <mat-card-content>
+                <p>Rok za vraćanje: {{preostaloDana(k)}} dana</p>
+                <p><button (click)="detalji(k)">Detalji o knjizi</button></p>
+                <p><button (click)="vratiKnjigu(k)">Vrati knjigu</button></p>
+                <p *ngIf="istekao" class="msg">Rok je istekao pre {{kasni(k)}} dana!</p>
+                <p *ngIf="!istekao">&nbsp;</p>
+            </mat-card-content>
+            <img mat-card-image class="mat-img" [src]="dohvatiSliku(k)">
+        </mat-card>  
+    </div>
+</div>
+<ng-template #elseBlock>Korisnik nema nijednu knjigu na zaduženju</ng-template>
+
+</div>

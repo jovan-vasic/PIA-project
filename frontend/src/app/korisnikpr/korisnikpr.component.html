@@ -1,0 +1,63 @@
+<h2>Ažuriranje informacija korisnika</h2>
+<div *ngIf="spremno">
+
+<table>
+    <tr>
+        <td>Korisničko ime: {{korisnik.kor_ime}}</td>
+        <td>
+            <input type="text" value="{{korisnik.kor_ime}}" name="kor_ime" [(ngModel)]="kor_ime">
+        </td>      
+    </tr>
+    <tr>
+        <td>Lozinka: {{korisnik.lozinka}}</td>
+        <td>
+            <input type="password" value="{{korisnik.lozinka}}" name="lozinka" [(ngModel)]="lozinka"
+            title="Minimalno 8 karaktera, maksimalno 12 karaktera, od toga bar jedno veliko slovo, jedan broj i jedan specijalni karakter, i mora počinjati slovom.">
+        </td>        
+    </tr>
+    <tr>
+        <td>Ime: {{korisnik.ime}}</td>
+        <td>
+            <input type="text" value="{{korisnik.ime}}" name="ime" [(ngModel)]="ime">
+        </td>        
+    </tr>
+    <tr>
+        <td>Prezime: {{korisnik.prezime}}</td>
+        <td>
+            <input type="text" value="{{korisnik.prezime}}" name="prezime" [(ngModel)]="prezime"> 
+        </td>        
+    </tr>
+    <tr>
+        <td>Adresa: {{korisnik.adresa}}</td>
+        <td>
+            <input type="text" value="{{korisnik.adresa}}" name="adresa" [(ngModel)]="adresa">
+        </td>        
+    </tr>
+    <tr>
+        <td>Telefon: {{korisnik.telefon}}</td>
+        <td>
+            <input type="text" value="{{korisnik.telefon}}" name="telefon" [(ngModel)]="telefon">
+        </td>        
+    </tr>
+    <tr>
+        <td>Mejl: {{korisnik.mejl}}</td>
+        <td>
+            <input type="text" value="{{korisnik.mejl}}" name="mejl" [(ngModel)]="mejl">
+        </td>        
+    </tr>
+    <tr>
+        <td>Slika:</td>
+        <td>
+            <input type="file" (change)="selectFile($event)">
+        </td>        
+    </tr>
+</table>
+<div *ngIf="korisnik.slika"><img [src]="korisnik.slika" width="200" height="200"></div>
+<div *ngIf="!korisnik.slika"><img [src]="slikaPod" width="200" height="200"></div>
+<br/>
+
+<button (click)="azuriraj()">Ažuriraj</button>
+<br/>
+<span style="color: green">{{poruka}}</span>
+
+</div>

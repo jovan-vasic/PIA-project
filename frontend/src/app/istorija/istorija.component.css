@@ -1,0 +1,13 @@
+.th, .td {
+    border: 3px solid #ddd;
+}
+
+.th {
+    background-color: navy;
+    color: white;
+    text-align: center;
+}
+
+.mat-sort-header-container {
+    align-items: center;
+}

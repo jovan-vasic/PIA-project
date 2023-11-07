@@ -1,0 +1,118 @@
+<h2>Zahtevi registracije korisnika</h2>
+<div *ngIf="spremno">
+
+<table *ngIf="korisniciCek.length > 0; else elseBlock">
+    <tr> 
+        <th class="tc" class="th">Korisničko ime</th>
+        <th class="tc" colspan="2"></th>
+    </tr>
+    <tr *ngFor="let k of korisniciCek"> 
+        <td class="tc">{{k.kor_ime}}</td>
+        <td class="tc"><button (click)="prihvati(k)">Prihvati</button></td>
+        <td class="tc"><button (click)="odbaci(k)">Odbaci</button></td>
+    </tr>
+</table>
+<ng-template #elseBlock>Nema korisnika koji su na cekanju</ng-template>
+<hr/>
+
+<h2>Korisnici</h2>
+<table>
+    <tr>
+        <th class="tc">Dodavanje</th> 
+    </tr>
+    <tr>
+        <td>Korisničko ime:</td>
+        <td>
+            <input type="text" name="kor_ime" [(ngModel)]="kor_ime" required>
+        </td>      
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td>
+            <input type="password" name="lozinka" [(ngModel)]="lozinka" required
+            title="Minimalno 8 karaktera, maksimalno 12 karaktera, od toga bar jedno veliko slovo, jedan broj i jedan specijalni karakter, i mora počinjati slovom.">
+        </td>        
+    </tr>
+    <tr>
+        <td>Potvrda lozinke:</td>
+        <td>
+            <input type="password" name="lozinka2" [(ngModel)]="lozinka2" title="Ponovite lozinku" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Ime:</td>
+        <td>
+            <input type="text" name="ime" [(ngModel)]="ime" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Prezime:</td>
+        <td>
+            <input type="text" name="prezime" [(ngModel)]="prezime" required> 
+        </td>        
+    </tr>
+    <tr>
+        <td>Adresa:</td>
+        <td>
+            <input type="text" name="adresa" [(ngModel)]="adresa" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Telefon:</td>
+        <td>
+            <input type="text" name="telefon" [(ngModel)]="telefon" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Mejl:</td>
+        <td>
+            <input type="text" name="mejl" [(ngModel)]="mejl" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Slika:</td>
+        <td>
+            <input type="file" (change)="selectFile($event)">
+        </td>        
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="registracija()">Dodaj</button>
+        </td>        
+    </tr>
+</table>
+<span style="color: green">{{poruka}}</span>
+<br/>
+<table>
+    <tr>
+        <th class="tc">Ažuriranje/brisanje</th> 
+    </tr>
+    <tr *ngFor="let k of korisniciDa">
+        <td class="tc">{{k.kor_ime}}</td>
+        <td class="tc"><button (click)="azuriranjeKorisnika(k)">Ažuriranje</button></td>
+        <td class="tc"><button (click)="obrisiKorisnika(k)">Obriši</button></td>
+    </tr>
+</table>
+<hr/>
+
+<h2>Knjige</h2>
+<a href="/mod">Dodavanje</a>
+<br/><br/>
+<table>
+    <tr>
+        <th class="tc">Ažuriranje/brisanje</th> 
+    </tr>
+    <tr *ngFor="let k of sveKnjige">
+        <td class="tc">{{k.naziv}}</td>
+        <td class="tc"><button (click)="azuriranjeKnjige(k)">Ažuriranje</button></td>
+        <td class="tc"><button (click)="obrisiKnjigu(k)">Obriši</button></td>
+    </tr>
+</table>
+<hr/>
+
+<h2>Rok za vraćanje knjige: {{r}}</h2>
+<input type="text" name="rok" [(ngModel)]="rok" required>
+&nbsp;&nbsp;
+<button (click)="promeniRok()">Promeni rok</button>
+
+</div>

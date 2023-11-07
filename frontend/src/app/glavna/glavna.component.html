@@ -1,0 +1,16 @@
+<h2>Glavna strana - top3 knjige</h2>
+<div *ngIf="spremno">
+
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let k of topKnjige">
+    <div class="picsum-img-wrapper">
+      <img class="img" [src]="dohvatiSliku(k)">
+    </div>
+    <div class="carousel-caption">
+      <h3>{{k.naziv}}</h3>
+      <p>{{k.autor}}</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+</div>

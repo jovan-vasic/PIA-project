@@ -1,0 +1,23 @@
+<h2>Istorija zaduženja</h2>
+<div *ngIf="spremno">
+
+<div *ngIf="sortedData.length > 0; else elseBlock">
+    <table matSort (matSortChange)="sortData($event)">
+        <tr>
+            <th mat-sort-header="naziv" class="th">Naziv knjige</th>
+            <th mat-sort-header="autor" class="th">Autor</th>
+            <th mat-sort-header="datumZ" class="th">Datum zaduživanja</th>
+            <th mat-sort-header="datumV" class="th">Datum vraćanja</th>
+        </tr>
+        <tr *ngFor="let z of sortedData">
+            <td class="td">{{ knjiga(z).naziv }}</td>
+            <td class="td">{{ knjiga(z).autor }}</td>
+            <td class="td">{{ z.datumZaduzenja }}</td>
+            <td class="td">{{ z.datumVracanja }}</td>
+            <td><button (click)="detalji(knjiga(z))">Detalji</button></td>
+        </tr>
+    </table>
+</div>
+<ng-template #elseBlock>Korisnik nije imao prethodna zaduženja</ng-template>
+
+</div>

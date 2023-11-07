@@ -1,0 +1,16 @@
+<h2>Profil</h2>
+<div *ngIf="ulogovan; else elseBlock">
+    <img class="img" [src]="dohvatiSliku()">
+    Korisničko ime: {{korisnik.kor_ime}}
+    <br/>
+    Ime i prezime: {{korisnik.ime}} {{korisnik.prezime}} 
+    <br/>
+    Adresa: {{korisnik.adresa}}
+    <br/>
+    Kontakt telefon: {{korisnik.telefon}}
+    <br/>
+    Mejl: {{korisnik.mejl}}
+    <br/><br/>
+    <button (click)="promena()">Promena lozinke</button>
+</div>
+<ng-template #elseBlock></ng-template>
